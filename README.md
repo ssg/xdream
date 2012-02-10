@@ -1,10 +1,9 @@
 x-dream
 =======
 
-This is a script I wrote a long time ago for an IRC client called XiRCON. 
-It received good amount of contribution from friends, notably [disq][1]. Back then
-it was both educational and eye-opening experience to learn TCL and I suggest
-anyone to give it a whirl.
+This is a script I wrote in 1997 for an IRC client called XiRCON. It received good amount of contribution 
+from friends, notably [disq][1]. Back then it was both educational and eye-opening experience to learn 
+TCL and I suggest anyone to give it a whirl.
 
 Some of the features were:
 

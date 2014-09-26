@@ -1,7 +1,7 @@
 x-dream
 =======
 
-This is a script I wrote in 1997 for an IRC client called XiRCON. It received good amount of contribution 
+This is a script I wrote in 1997 for an IRC client called [XiRCON][2]. It received good amount of contribution 
 from friends, notably [disq][1]. Back then it was both educational and eye-opening experience to learn 
 TCL and I suggest anyone to give it a whirl.
 
@@ -52,3 +52,4 @@ LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT
 OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 [1]: http://github.com/disq
+[2]: https://en.wikipedia.org/wiki/User:Tothwolf/XiRCON

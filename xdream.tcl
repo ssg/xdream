@@ -1,11 +1,143 @@
+# <x-dream>
+#
+# code by ssg, clairvoyant, disq, mengus
+#
+# http://www.sourtimes.org
+# thanks goes to Scotch/CLQ, `BLaCK, AsMoD3uS
+
+# refer to "xdream.cfg" file for user configuration...
+
+# to do's & changes since 1.9a
+# ============================
+# - add ctrl+1, ctrl+2, ctrl+n shortcuts for windows?
+# - implement last url's history
+# - play.. play on paste..
+# - smart identification system
+# ! removed dcc receive notification
+# ! slms made customizable (disq)
+# ! now it does not gain favoritenick in away mode (disq)
+# ! /opa and /dopa now handles nick lists bigger than 6 nicks (disq)
+# ! massop/deop/voice operations changed, masscmd proc added (disq)
+# ! no such nick messages to queries (works for me already? -disq)
+# ! bugfixed nickname completion with tab key bug once more for nicks containing open braces (disq)
+# ! removed "selam et" from status menu -meaningless- (disq)
+# ! fixed nickname completion with tab key bug (hede@hodo thing) (disq)
+# ! fixed complete;return bugs (disq)
+# ! removed help for /c64 and /cpc464 (obsolete) (disq)
+# ! fixed bkz handling, now correctly handles strings like "(bkz: hede)hodo" and "`hede`hodo" (disq)
+# ! changed sozlukurl and ayet numarasi anchor name (disq)
+# ! bugfixed kicktriggers..
+# ! fixed ban flood bug..
+# ! changed to new sozluk server..
+# ! bugfixed mode..
+# ! changed join layout.. (much more readable)
+# ! remove sms,dict and sozluk code.. (obsolete)
+# ! last bkz & last url matching now cleaner (disq)
+# ! bugfixed nldelete (disq)
+# ! bugfixed identbase save.
+# ! bugfixed double mode bug on channel joins..
+# ! bugfixed bkz:// conversion (disq)
+# ! bugfixed mailto:// handling (disq)
+# ! bugfixed away in menus (disq)
+# ! bugfixed xlat..
+# ! cancel button in menu-dialogs now works (disq)
+# ! kicks are shown in status window when you get kicked
+# ! getting back from 10 min autoaway correctly shows elapsed time..
+# ! bugfixed auto-joins...
+# ! bugfixed conference room 1.5.x null-lines...
+# ! bugfixed away delay...
+# ! bugfixed "[" char in nick completion bug...
+# ! bugfixed random version...
+# ! bugfixed query...
+# ! bugfixed remove alias...
+# ! bugfixed killdcc...
+# ! bugfixed /kb
+# ! xircon channel window title bugfix..
+# ! config filename changed to xdream.cfg
+# ! bugfixed kline.. (disq)
+# ! changed serial / crack method to avoid floods (ssg)
+# + added /reload, same as /refresh (disq)
+# + added auto-execs. set aexec(irc.server.org) { "/cmd1 params" "/cmd2 params" } (disq)
+# + added /xlat* undefined language pair error (disq)
+# + added /dict* alias (langtolang translation) (disq)
+# + added /command completion with tab key (disq)
+# + added checkversionatstartup (disq)
+# + added /checkversion (disq)
+# + added /dop alias for /deop and /mdop alias for /mdeop (disq)
+# + added /dopca and /dopa aliases (disq)
+# + added /opca and /opa aliases (disq)
+# + added user-bkz (mengus-nyks)
+# + added selam-matik(tm) (mengus)
+# + added zobanvision(tm) (disq)
+# + added versioninfo of klient..
+# + added alt+a and f6 (away shortcuts)
+# + finished all helptext..
+# + added all the missing help files
+# + added /wix alias
+# + "gorunmez bkz"'s are now clickable (disq)
+# + added /id alias..
+# + if notifynick is on, highlights messages containing own nick (disq)
+# + /bkz alias (shows bkz history) (disq)
+# + /sus alias (turns off titlebar flashing) (disq)
+# + all url's are now opened in new browser window (disq)
+# + bkz's are now clickable (opened in new browser window) (disq)
+# + highlight lines containing notifytriggers (disq)
+# + added "open last url in new window" (F8) (disq)
+# + added "open last bkz" (F7) (disq)
+# + +++ath0 hangup trick protection.. (disq)
+# + /nquery (noticequery) added.. (disq)
+# + /n alias added..
+# + added csadd (chanserv access add) alias..
+# + fkb alias... (filter kick ban)
+# + auto-unban thru chanserv when joining a channel
+# + added part messsage support..
+# + new popups..
+# + auto-op request..
+# + #cracks automation
+# + made date formatting more readable..
+# + now strips path from dcc finish notices..
+# + topic and channel mode correction
+# + user and channel mode descriptions..
+# + run alias...
+# + auto hotkey open for received dcc files...
+# + country codes onjoin and whois
+# + nick completion auto-shortening
+# + /detach alias & separate private messages window
+# + nicer away time layout...
+# + clairvoyant alias.. (random mp3 player)
+# + mp3 alias
+# + set alias (allows to change config options at runtime)
+# + added random auto-greet support
+# + random quit messages
+# + xlat alias (babelfish translation)...
+# + recoded seen alias... (via nickserv)
+# + nickname completion with tab key and smart /msg prefix with tab
+# + added server-op and admin numerics...
+# + added wi alias...
+# + added hack alias...
+# + added taskbar notification feature...
+# + "*" support in "op in channels" field...
+# + added _away suffix to nick option...
+# + dcc autoreject...
+# + channel name completion
+# + initial channel topics/urls are shown in the active window
+# + autowatch feature added.
+# + lines which have notify triggers cause them to be highlighted.
+# + split detection
+# + dcc status in separate window
+# + shows invisible text
+# + configurable status info
+# + WHOIS query...
+# + dictionary lookup...
+# + ircop & clone scan during join...
+# + encrypted messaging (/enc)
+# + added auto-dcc ip catching..
+
 set xdream "\x02<x-dream>\x02"
-set xversion "1.99.996ka"
+set xversion "1.99.996f"
 
 set TurkishSource { "Ş" "İ" "ı" "Ğ" "ş" "ğ" }
 set TurkishDest   { "$" "i" "I" "G" "$" "g" }
-
-set utfSource { "\xC4\x9F" "\xC3\xBC" "\xC5\x9F" "\xC4\xB1" "\xC3\xB6" "\xC3\xA7" "\xC4\x9E" "\xC3\x9C" "\xC5\x9E" "\xC4\xB0" "\xC3\x96" "\xC3\x87" }
-set utfDest   { "ğ" "ü" "ş" "ı" "ö" "ç" "Ğ" "Ü" "Ş" "İ" "Ö" "Ç" }
 
 set mp3player "c:/program files/winamp/winamp.exe"
 set defaultkey "defaultkey"
@@ -26,19 +158,23 @@ set skipcompletion 0
 set scanchannel ""
 set massive_shield 0
 set listing_bans 0
+set invisiblectcps {"ACTION" "DCC"}
 set noback 0
 set lastban ""
 set awaysince [clock seconds]
 set lastbanchannel ""
 set tryingtogain ""
 set banclearmode 0
+set startexe ""
 set nickaway ""
 set awaysuffix "_away"
 set defaultKickReason $xdream
 set klersecs 908863806
 set infostatus "yes"
 set separatemsg ""
+set sozcounter 0
 set favoritenick ""
+set dumping 0
 set xvared en_de
 set xvaref en_fr
 set xvarei en_it
@@ -77,13 +213,7 @@ set translating 0
 set checkversioninprogress 0
 set checkversionServer "ssg.sourtimes.org"
 set checkversionFile "/files/xdream.version"
-set checkversionatstartup 0
-set lastconnectedserver ""
-set lastconnectedserver_cooldown 0
-set autoreconnect 1
-set autoreconnect_retrysecs 30
-set send_utf 1
-set turkishxlat 0
+set checkversionatstartup 1
 set aliases {}
 set lastjoin ""
 set NickCompletionCase "normal"
@@ -222,10 +352,22 @@ set highkeys {}
 set modemescapechar "+"
 set lasturl ""
 set lastbkzhistory {}
-set sozlukurl "http://sozluk.sourtimes.org/show.asp"
+set sozlukurl "http://sozluk.sourtimes.org/show.asp?t="
 set browser "c:\\program files\\internet explorer\\iexplore.exe"
-set capabcapable 1
-set capabshow 1
+
+set slms(f) {
+        "/me %nick: sana ve bu vesile ile tum sozluk bayanlarina selam ederim..."
+        "/me %nick: selamlarimi yanyana koysan iki ekvator eder..."
+    "/me %nick: bir papatyanin gune\$ altinda sarimtrak gorunen bembeyaz yapraklarindan suzulen bir billur damlasi gibi gozya\$larimin icinden sana selam etmek, bu vesile ile kapilarimin tum sozluk bayanlarina acik oldugunu belirtmek isterim."
+        "/me %nick: kariyerim su topculuktan mankenlige, coder'liktan muzisyenlige uzanan cok geni\$ bir yelpazeyi kapsar. selam etsem, alir misin?"
+}
+
+set slms(m) {
+        "/me %nick: sana ve bu vesile ile tum sozluk baylarina selam ederim..."
+        "/me %nick: selamlarimi yanyana koysan iki ekvator eder..."
+    "/me %nick: bir papatyanin gune\$ altinda sarimtrak gorunen bembeyaz yapraklarindan suzulen bir billur damlasi gibi gozya\$larimin icinden sana selam etmek, bu vesile ile kapilarimin tum sozluk baylarina acik oldugunu belirtmek isterim."
+        "/me %nick: kariyerim balerinlikten mankenlige, ressamliktan kama-sutra'ya uzanan cok geni\$ bir yelpazeyi kapsar. selam etsem, alir misin?"
+}
 
 if [catch {source $configfile}] {
   echo "$xdream --warning: $configfile file not found"
@@ -253,27 +395,6 @@ proc alias {name body} {
 }
 
 ############### ##### ### # #     aliases
-
-alias aexec {
-  set tmp [lindex [server] 0]
-  if [info exists aexec($tmp)] {
-    showinfo AutoExec "AutoExecing: $aexec($tmp)"
-    foreach x $aexec($tmp) {
-      after 500 $x
-    }
-  }
-complete
-}
-
-alias ajoin {
-  if [info exists ajoin($tmp)] {
-    showinfo AutoJoin "Joining: $ajoin($tmp)"
-    foreach x $ajoin($tmp) {
-      after 500 "/join $x"
-    }
-  }
-complete
-}
 
 alias wix {
   set hede [arg]
@@ -321,6 +442,7 @@ alias sus {
     complete
 }
 
+
 oldalias kline {
   set reason [join [lrange [args] 1 end]]
   if {$reason==""} {
@@ -341,7 +463,7 @@ global noticenicks noticewindows
         if {[window exists query $w]} {
             set txt [lrange [args] 1 end]
             echo "<[my_nick]> $txt" query $w
-            /quote NOTICE $niq :[utftranslate_reverse $txt]
+            /quote NOTICE $niq :$txt
         } else {
             set noticenicks [nldelete $noticenicks $niq]
             set noticewindows [nldelete $noticewindows $w]
@@ -352,8 +474,40 @@ global noticenicks noticewindows
     complete
     return
 }
+alias slm {
+    if {[arg]==""} {
+        showusage "</slm <cinsiyet(m/f)> <nick>"
+        complete
+        return
+    }
+
+  set g [lindex [args] 0]
+  
+  if {[info exists slms($g)]==0} {
+        showusage "</slm <cinsiyet(m/f)> <nick>"
+        complete
+        return
+    }
+  
+  set l [llength $slms($g)]
+        
+    set a [random 0 [expr $l - 1]]
+    set s [lindex $slms($g) $a]
+
+    set i [string first "%nick" $s]
+    while {$i>-1} {
+    set sb [string range $s 0 [expr $i - 1]]
+    set se [string range $s [expr $i + 5] [string length $s]]
+    set s "$sb[lindex [args] 1]$se"
+    set i [string first "%nick" $s]
+  }
+
+    $s
+}
+
 
 alias nquery {
+
 global noticenicks noticewindows
 
   if {[arg]==""} {
@@ -386,7 +540,7 @@ alias n {
 }
 
 alias raw {
-  /quote PRIVMSG OperServ :RAW [utftranslate_reverse [arg]]
+  /quote PRIVMSG OperServ :RAW [arg]
   complete
 }
 
@@ -697,21 +851,21 @@ alias mp3 {
   complete
 }
 
-alias anysong {
+alias clairvoyant {
   if {![info exists mp3dir]} {
-    showerror anysong "mp3dir variable not set in $configfile"
+    showerror clairvoyant "mp3dir variable not set in $configfile"
     complete
     return
   }
   if ![string match "*/" $mp3dir] { set mp3dir $mp3dir/ }
   set tmp [glob -nocomplain ${mp3dir}*.mp3]
   if {[llength $tmp]==0} {
-    showerror anysong "no mp3 files found in $mp3dir"
+    showerror clairvoyant "no mp3 files found in $mp3dir"
     complete
     return
   }
   set lastmp3 [rlist $tmp]
-  showinfo anysong "Playing $lastmp3"
+  showinfo clairvoyant "Playing $lastmp3"
   exec $mp3player $lastmp3 &
   set lastmp3 [lindex [split $lastmp3 /] end]
   regsub .mp3 $lastmp3 "" lastmp3
@@ -829,7 +983,7 @@ alias wallops {
     foreach x [nicks $chan] {
       set x [normalizenick $x]
       if [isop $x $chan] {
-        /quote NOTICE $x :\x02wallops/$chan:\x02 [utftranslate_reverse [arg]]
+        /quote NOTICE $x :\x02wallops/$chan:\x02 [arg]
       }
     }
   } else {
@@ -899,6 +1053,7 @@ alias j {
   }
   complete
 }
+
 
 alias config {
   /edit $configfile
@@ -1187,7 +1342,7 @@ alias aop {
 }
 
 alias imsg {
-  /quote privmsg [lindex [args] 0] :[utftranslate_reverse [join [lrange [args] 1 end]]]
+  /quote privmsg [lindex [args] 0] :[join [lrange [args] 1 end]]
   complete
 }
 
@@ -1406,7 +1561,7 @@ oldalias privmsg {
             lappend noticenicks $dest
             lappend noticewindows [window name]
         }
-        /quote NOTICE $dest :[utftranslate_reverse $msg]
+        /quote NOTICE $dest :$msg
       set msg [highlightkeys [bkzlaricevir $msg] "query"]
         echo "<[my_nick]> $msg" query [window name]
         complete
@@ -1785,7 +1940,7 @@ on topic {
     set tmp [host]
   }
   set chan [lindex [args] 0]
-  set topic [turkishtranslate [utftranslate [join [lrange [args] 1 end]]]]
+  set topic [turkishtranslate [join [lrange [args] 1 end]]]
   if [window exists channel $chan] {
     chaninfo $chan "[color mode]Topic: \"$topic[color mode]\" set by $tmp"
     set tmp [window get_title channel $chan]
@@ -1920,26 +2075,6 @@ on timer {
       window set_title $defaultwindowheader main
     }
   }
- 
-if {($autoreconnect==1)&&([connected]==0)&&($lastconnectedserver!="")&&(($lastconnectedserver_cooldown==0)||([expr $lastconnectedserver_cooldown + $autoreconnect_retrysecs]<[clock seconds]))} {
-	set lastconnectedserver_cooldown [clock seconds]
-
-	set tmp $lastconnectedserver
-
-  if [info exists serverpasses] {
-    foreach i $serverpasses {
-      if {$lastconnectedserver==[lindex $i 0]} {
-        set lastconnectedserver "$lastconnectedserver [lindex $i 1]"
-  			set tmp "$tmp (with pass)"
-        break
-      }
-    }
-		}
-
-  showinfo Reconnect "Retrying $tmp"
-	/server $lastconnectedserver
-}
-
 }
 
 on load {
@@ -1952,10 +2087,6 @@ on load {
   if {$checkversionatstartup} {
     /checkversion
     }
-
-	if {[connected]==1} {
-		set lastconnectedserver [server]
-		}
 
   complete
 }
@@ -1974,9 +2105,19 @@ on connect {
   set idlesecs 0
   showinfo $xdream "connected to [server]"
   set_cookie lastserver [server]
-  set lastconnectedserver [server]
-  /aexec
-  /ajoin
+  set tmp [lindex [server] 0]
+  if [info exists aexec($tmp)] {
+    showinfo AutoExec "AutoExecing: $aexec($tmp)"
+    foreach x $aexec($tmp) {
+      after 500 $x
+    }
+  }
+  if [info exists ajoin($tmp)] {
+    showinfo AutoJoin "Joining: $ajoin($tmp)"
+    foreach x $ajoin($tmp) {
+      after 500 "/join $x"
+    }
+  }
   if {[user_count]>0} {
     set niqlist {}
     for {set i 0} {$i<[user_count]} {incr i} {
@@ -2072,22 +2213,7 @@ on wallops {
 
 on notice {
   global noticenicks noticewindows
-
-	set msg [join [lrange [args] 1 end]]
-
-	set nickcolor ""
-
-	if {$capabcapable=="1"} {
-		set first [string index $msg 0]
-		if {($first == "-") || ($first == "+")} {
-			set msg [string	range $msg 1 [expr [string length $msg] - 1]]
-			if {$first == "-"} {
-					set nickcolor [color error]
-					}
-			}
- 		}
-
-  set msg [turkishtranslate [utftranslate $msg]]
+  set msg [turkishtranslate [join [lrange [args] 1 end]]]
   if {$msg==""} {
     complete
     return
@@ -2161,30 +2287,7 @@ on notice {
 on privmsg {
   update_ial [nick] [user] [host]
   set chan [lindex [args] 0]
-  set msg [join [lrange [args] 1 end]]
-
-	set gotaction 0
-
-	set nickcolor ""
-	set untrusted 0
-
-	if {$capabcapable=="1"} {
-		set first [string index $msg 0]
-		if {($first == "-") || ($first == "+")} {
-			set msg [string	range $msg 1 end]
-			if {$first == "-" && $capabshow==1} {
-					set nickcolor [color error]
-					set untrusted 1
-					}
-			}
-
-		if {[lindex [split $msg " "] 0]=="\x01\ACTION" && [string last "\x01" $msg]>1} {
-			set gotaction 1
-			}
-
- 		}
-
-  set msg [decrypt [stripcolors [turkishtranslate [utftranslate $msg]]]]
+  set msg [decrypt [stripcolors [turkishtranslate [join [lrange [args] 1 end]]]]]
   global lastmsg
   set lastmsg $msg
 
@@ -2208,17 +2311,13 @@ on privmsg {
     }
   }
 
-  set highcolor ""
-
-	if {$capabcapable=="1"} {
-		set highcolor [color channel]
-	}
+    set highcolor ""
 
   if [info exists notifytriggers] {
     foreach x $notifytriggers {
       if [string match "*[string toupper [lindex $x 0]]*" $test] {
         set flashreason [lindex $x 1]
-        set highcolor [color Highlight]
+                set highcolor [color Highlight]
         break
       }
     }
@@ -2232,7 +2331,7 @@ on privmsg {
       if {[string first "[string toupper [my_nick]]" $test]>=0} {
         if $isaway xbeep
         set flashreason "[nick] -> [my_nick]"
-        set highcolor [color Highlight]
+                set highcolor [color Highlight]
       }
     }
   }
@@ -2250,12 +2349,12 @@ on privmsg {
     if {$qq==""} {
       if {$usequeries!="yes"} {
         if {$separatemsg!="yes"} {
-          echo "$highcolor*$nickcolor[nick]$highcolor* [color private]$msg"
+          echo "$highcolor*[nick]* [color private]$msg"
         } else {
           if ![window exists query \xA0Private] {
             /query \xA0Private
           }
-          echo "$highcolor*$nickcolor[nick]$highcolor* [color private]$msg" query \xA0Private
+          echo "$highcolor*[nick]* [color private]$msg" query \xA0Private
         }
         complete
       } else {
@@ -2263,35 +2362,15 @@ on privmsg {
         if {$minimizenewqueries=="yes"} {
           window minimize query [nick]
         }
-        echo "$highcolor<$nickcolor[nick]$highcolor> $msgcolor$msg" query [nick]
+        echo "$highcolor<[nick]> $msgcolor$msg" query [nick]
         complete
       }
     } else {
-      echo "$highcolor<$nickcolor[nick]$highcolor> $msgcolor$msg" query $qq
+      echo "$highcolor<[nick]> $msgcolor$msg" query $qq
       complete
     }
   } else {
-  	if {$gotaction==1} {
-			set tmp [expr [string first $msg "ACTION "] + 9]
-	    set msg [string range $msg $tmp [string length $msg]]
-#  		set msg [lrange [split $msg " "] 1 end]
-  		set tmp [string length $msg]
-  		if {[string range $msg [expr $tmp - 1] $tmp]=="\x01"} {
-  			set msg [string range $msg 0 [expr $tmp - 1]]
-  			}
-  		
-  		if {$untrusted==1} {
-		    echo "~[color nick]* [nick][color action] $msg" channel $chan
-				} else {
-		    echo "[color nick]* [nick][color action] $msg" channel $chan
-				}  	
-  	} else {
-	  	if {$untrusted==1} {
-		    echo "~$highcolor<[nick]> $msgcolor$msg" channel $chan
-			} else {
-		    echo "$highcolor<$nickcolor[nick]$highcolor> $msgcolor$msg" channel $chan
-		  }
-		}
+    echo "$highcolor<[nick]> $msgcolor$msg" channel $chan
   }
   complete
 }
@@ -2351,24 +2430,9 @@ on ctcp {
     complete
     return
   }
-
   set host [host]
   set cmd [string toupper [lindex [args] 1]]
-
-	if {$capabcapable=="1"} {
-		set first [string index $msg 0]
-		if {($first == "-") || ($first == "+")} {
-			set cmd [string	range $cmd 1 [expr [string length $cmd] - 1]]
-			}
- 		}
-
   set params [join [lrange [args] 2 end]]
-
-#switch workaround (fixme: should be switch escape)
-		if {[string index $cmd 0] == "-"} {
-			set cmd [string	range $cmd 1 [expr [string length $cmd] - 1]]
-		}
-
   if {($cmd!="DCC")&&($cmd!="ACTION")} {
     if {$host!=[my_host]} {
       if {![info exists ctcpcount($host)]} {
@@ -2383,7 +2447,7 @@ on ctcp {
           set_user $id ignore private
           unset ctcpcount($host)
           after 20000 [subst {delete_user $id}]
-         	complete
+         complete
           return
         }
       }
@@ -2445,7 +2509,8 @@ on ctcp {
     "PING" {
       showinfo ping "[nick] pinged you.. ($params)"
       if {([stricmp $modemescapechar ""]) && ([string match "*$modemescapechar$modemescapechar$modemescapechar*" $params])} {
-                showinfo ping "ping string contains modem escape char";
+                showinfo ping "ping string contains modem escape char, sent warning to [nick]";
+                ctcpreply [nick] fuck you
                 complete
                 return
       }
@@ -2504,12 +2569,7 @@ on 004 {
   complete
 }
 on 005 {
-	set tmp [join [lrange [args] 1 end]]
-	if [string match "* capab *" [string tolower $tmp]] {
-		set capabcapable 1
-		/QUOTE CAPAB IDENTIFY-MSG
-		}
-  showinfo serverinfo $tmp
+  showinfo serverinfo [join [lrange [args] 1 end]]
   complete
 }
 
@@ -2980,6 +3040,7 @@ on part {
         showinfo AutoGain "Autogaining op on [arg]"
         /rejoin [arg]
       }
+
     }
     if [info exists repeatcount([nick])] {
       unset repeatcount([nick])
@@ -3060,29 +3121,19 @@ proc handle_urls { uri } {
         return
     }
 
-		set newuri ""
-		
     if {[string first "bkz://" $uri]==0} {
-        set newuri [translate [string range $uri 6 end] "_" "+"]
+        set uri [translate [string range $uri 6 end] "_" "+"]
+        if {[string first "/" $uri]>-1} { set uri "$uri#a" }
+    set uri "$sozlukurl$uri"
     } elseif {[string first "://" $uri]==0} {
-        set newuri [translate [string range $uri 3 end] "_" "+"]
+        set uri [translate [string range $uri 3 end] "_" "+"]
+    set uri "$sozlukurl$uri"
     } elseif {[string first "//" $uri]==0} { ;# xircon "feature"
-        set newuri [lindex $uri 0] ;# another xircon "feature"
-        set newuri [translate [string range $newuri 2 end] "_" "+"]
+        set uri [lindex $uri 0] ;# another xircon "feature"
+        set uri [translate [string range $uri 2 end] "_" "+"]
+    set uri "$sozlukurl$uri"
     }
-
-		if { $newuri != "" } {
-		  if {[string range $newuri 0 0]=="#"} {
-	        	set newuri "$sozlukurl?id=[string range $newuri 1 end]"
-	        	} else {
-			        if {[string first "/" $newuri]>-1} { set newuri "$newuri#a" }
-			        set newuri "$sozlukurl?t=$newuri"
-			      }
-		} else {
-			set newuri $uri
-			}
-
-    exec "$browser" "$newuri" &
+    exec "$browser" "$uri" &
 
     return
 }
@@ -3100,9 +3151,6 @@ global lastbkzhistory
 #gorunmez bkz -disq
     regsub -all {\`([A-Za-z0-9 ]+)\`} "$msg" "(gbkz://\\1) " msg
 
-#numarali bkz -disq
-    regsub -all {\(bkz(:|\.) *\#([0-9]+)\)} "$msg" "(gbkz://#\\2)" msg
-
     while {[string first "(bkz://" $msg]!=-1} {
     set i [string first "(bkz://" $msg]
     set sub [string range $msg $i end]
@@ -3113,7 +3161,7 @@ global lastbkzhistory
         regsub -all {\(bkz://([A-Za-z0-9\_\/]+)\)} "$icsel" "bkz://\\1" icsel
     if {[set ahmet [lsearch $lastbkzhistory $icsel]]>-1} { set lastbkzhistory [lreplace $lastbkzhistory $ahmet $ahmet] }
         lappend lastbkzhistory $icsel
-    		set msg "[string range $msg 0 [expr $i-1]]$icsel[string range $msg [expr $j+1] end]"
+    set msg "[string range $msg 0 [expr $i-1]]$icsel[string range $msg [expr $j+1] end]"
         }
     while {[string first "(gbkz://" $msg]!=-1} {
     set i [string first "(gbkz://" $msg]
@@ -3122,10 +3170,10 @@ global lastbkzhistory
     if {$j==-1} {set j [expr [string length $i]-1]} else {set j [expr $i+$j]}
         set icsel [string range $msg $i $j]
         set icsel [translate $icsel " " "_"]
-        regsub -all {\(gbkz://([\#A-Za-z0-9\_]+)\)} "$icsel" "://\\1" icsel
+        regsub -all {\(gbkz://([A-Za-z0-9\_]+)\)} "$icsel" "://\\1" icsel
     if {[set ahmet [lsearch $lastbkzhistory $icsel]]>-1} { set lastbkzhistory [lreplace $lastbkzhistory $ahmet $ahmet] }
         lappend lastbkzhistory $icsel
-		    set msg "[string range $msg 0 [expr $i-1]]$icsel[string range $msg [expr $j+1] end]"
+    set msg "[string range $msg 0 [expr $i-1]]$icsel[string range $msg [expr $j+1] end]"
         }
     return $msg
 }
@@ -3705,7 +3753,7 @@ proc ison {nick chan} {
 }
 
 alias ctcpreply {
-  /quote NOTICE [lindex [args] 0] :\x01[utftranslate_reverse [join [lrange [args] 1 end]]]\x01
+  /quote NOTICE [lindex [args] 0] :\x01[join [lrange [args] 1 end]]\x01
   complete
 }
 
@@ -3714,7 +3762,7 @@ proc ctcp { target cmd } {
 }
 
 proc ctcpreply {nick ctcp parms} {
-  /quote NOTICE $nick :\x01[string toupper $ctcp] [utftranslate_reverse $parms]\x01
+  /quote NOTICE $nick :\x01[string toupper $ctcp] $parms\x01
 }
 
 proc print_user {index} {
@@ -3789,68 +3837,21 @@ proc isop2 {nick chan} {
 }
 
 proc turkishtranslate {str} {
-	global turkishxlat
-	
-	if {$turkishxlat>0} {
-	  global TurkishSource
-	  global TurkishDest
-	  set y [string length $str]
-	  set out ""
-	  for {set i 0} {$i < $y} {incr i} {
-	    set c [string index $str $i]
-	    if {($c!="*")&&($c!="?")} {
-	      set tmp [lsearch $TurkishSource $c]
-	      if {$tmp!=-1} {
-	        set c [lindex $TurkishDest $tmp]
-	      }
-	    }
-	    append out $c
-	  }
-	  return $out
-	  }
-  return $str
-}
-
-proc generic_replace {str needlelist replacementlist} {
-	set l [llength $needlelist]
-  for {set i 0} {$i < $l} {incr i} {
-  	set needle [lindex $needlelist $i]
-  	set replacement [lindex $replacementlist $i]
-  	set nlen [string length $needle]
-  	set rlen [string length $replacement]
-	  set y [string length $str]
-#ebeminki gibi loop
-	  for {set j 0} {$j < $y} {incr j} {
-	  	set substr [string range $str $j [expr $j + $nlen - 1]]
-#	  	echo "substr=$substr"
-	  	if {$substr==$needle} {
-	  		set startpart [string range $str 0 [expr $j - 1]]
-	  		set endpart [string range $str [expr $j + $nlen] end]
-	  		set str "$startpart$replacement$endpart"
-	  		set j [expr $j + ($rlen - $nlen)]
-			  set y [string length $str]
-	  		}
-	  	}
-  	}
-
-  return $str
-}
-
-proc utftranslate {str} {
-  global utfSource
-  global utfDest
-  
-	return [generic_replace $str $utfSource $utfDest]
-}
-
-proc utftranslate_reverse {str} {
-  global utfSource
-  global utfDest
-  global send_utf
-  
-  if {$send_utf>0} { return [generic_replace $str $utfDest $utfSource] }
-  
-  return $str
+  global TurkishSource
+  global TurkishDest
+  set y [string length $str]
+  set out ""
+  for {set i 0} {$i < $y} {incr i} {
+    set c [string index $str $i]
+    if {($c!="*")&&($c!="?")} {
+      set tmp [lsearch $TurkishSource $c]
+      if {$tmp!=-1} {
+        set c [lindex $TurkishDest $tmp]
+      }
+    }
+    append out $c
+  }
+  return $out
 }
 
 proc rlist alist {
@@ -3949,19 +3950,19 @@ hotkey control+D {
 }
 
 hotkey control+M {
-  /anysong
+  /clairvoyant
   complete
 }
 
-#hotkey F6 {
-#  /away
-#  complete
-#}
+hotkey F6 {
+  /away
+  complete
+}
 
-#hotkey Alt+A {
-#  /away
-#  complete
-#}
+hotkey Alt+A {
+  /away
+  complete
+}
 
 hotkey Alt+D {
   /dcc
@@ -4069,7 +4070,7 @@ menu status "*global ircop && clone scan" { /scan }
 menu status "internic whois query" { catch { /wiq [xprompt "whois query" "hostname" ""] } }
 menu status ""
 menu status "mp3->play" { catch { /mp3 [xprompt "play a mp3 from $mp3dir" "mp3 name?" ""] } }
-menu status "mp3->*play random" { /anysong }
+menu status "mp3->*play random" { /clairvoyant }
 menu status "mp3->"
 menu status "mp3->show mp3 list" { /mp3 ? }
 menu status ""
@@ -4230,7 +4231,8 @@ menu query "ctcp->finger" { /ctcp [arg] finger }
 menu query "ctcp->"
 menu query "ctcp->prompt..." { catch { /ctcp [arg] [xprompt "ctcp" "ctcp to send" ""] } }
 menu query ""
-
+menu query "selam et(erkege)" {/slm m [arg]}
+menu query "selam et(di\$iye)" {/slm f [arg]}
 menu query ""
 menu query "try netbios hack" { /hack [arg] }
 menu query ""
@@ -4265,6 +4267,8 @@ menu users "remove from->autokick list" { /akick del [arg] }
 menu users ""
 menu users "whois" { /whois [arg] }
 menu users "sozlukten bakayim" {exec $browser "http://sozluk.sourtimes.org/show.asp?t=[arg]"}
+menu users "selam et! (erkege)" { /slm m [arg] }
+menu users "selam et! (disiye)" { /slm f [arg] }
 menu users "lookup hostname" { /dns [arg] }
 menu users "internic query" { if [info exists IAL([arg])] { /wiq [lindex $IAL([arg]) 1] } }
 menu users "ctcp->ping" { catch { /page [arg] [xprompt "page away user" "reason" "alooo"]} }
@@ -4332,6 +4336,9 @@ menu chat ""
 menu chat "close query" { window close query [arg] }
 
 # help
+set help(slm) {
+"slm <cinsiyet (m/f)> <nick>"
+}
 set help(page) {
   "page <nick>"
   "page away user"
@@ -4675,8 +4682,8 @@ set help(wi) {
   "Does a /WHOIS on the specified user"
 }
 
-set help(anysong) {
-  "anysong"
+set help(clairvoyant) {
+  "clairvoyant"
   "random mp3 player"
   "Plays a random mp3 file from your favorite mp3 directory. mp3dir and mp3player variables\
   must be set in $configfile file."
@@ -5039,18 +5046,6 @@ set help(checkversion) {
   "checkversion"
   "check for new version"
   "checks for new version of x-dream"
-}
-
-set help(aexec) {
-  "aexec"
-  "run autoexec"
-  "re-run the autoexec sequence"
-}
-
-set help(ajoin) {
-  "ajoin"
-  "run autojoin"
-  "re-run the autojoin sequence"
 }
 
 set missing {}

@@ -1,3 +1,8 @@
+## <x-dream> sample fully-bloated configuration file
+#
+# rename to xdream.cfg if you -actually- want to use it
+#
+
 # x-dream configuration file
 
 # your favorite nick (the nick that you mostly use)
@@ -37,25 +42,36 @@ set notifynick "yes"
 
 # first item is the trigger word, the other is the message you want to see on the taskbar...
 set notifytriggers {
+    { "ssg" "ssg is talking" }
 }
 
 # autojoins... server-based and supports multi channels... see the example...
+set ajoin(irc.sourtimes.org) { #sozluk #people }
 
 # autoexec list... server-based and supports multi commands... see the example...
+set aexec(irc.sourtimes.org) { "/msg mom hi mom i'm here" "/msg dad hi dad how you doin" }
 
 # these are kick triggers... when someone spits a sentence contains
 # the first parameter the person is kicked with the reason given in
 # second parameter.
 set kicktriggers {
+  {"AMIGA SUCKS" "Amiga doesn't suck!"}
+  {"CPC SUCKS" "CPC doesn't suck!"}
+  {"C64 SUCKS" "C64 doesn't suck!"}
+  {"OS/2 RUL" "OS/2 doesn't rule!"} 
+  {"WIN95 RUL" "Win95 doesn't rule!"}
 }
 
 # these are random quit messages on a empty quit command
 # if you want to disable this feature just remove following lines
 set quits {
+    "my first quit reason"
+    "my second quit reason"
 }
 
 # automatic replies to specific keywords.
 set replies {
+		"replytome" "here is your reply"
 }
 
 # use queries instead of messages in active window?
@@ -67,5 +83,20 @@ set minimizenewqueries no
 
 # these are keywords that will be highlighted
 set highkeys {
+	"xircon" "irc"
 }
 
+# slms, for /slm
+set slms(f) {
+		"/me %nick: sana ve bu vesile ile tum sozluk bayanlarina selam ederim..."
+		"/me %nick: selamlarimi yanyana koysan iki ekvator eder..."
+    "/me %nick: bir papatyanin gune\$ altinda sarimtrak gorunen bembeyaz yapraklarindan suzulen bir billur damlasi gibi gozya\$larimin icinden sana selam etmek, bu vesile ile kapilarimin tum sozluk bayanlarina acik oldugunu belirtmek isterim."
+		"/me %nick: kariyerim su topculuktan mankenlige, coder'liktan muzisyenlige uzanan cok geni\$ bir yelpazeyi kapsar. selam etsem, alir misin?"
+}
+
+set slms(m) {
+		"/me %nick: sana ve bu vesile ile tum sozluk baylarina selam ederim..."
+		"/me %nick: selamlarimi yanyana koysan iki ekvator eder..."
+    "/me %nick: bir papatyanin gune\$ altinda sarimtrak gorunen bembeyaz yapraklarindan suzulen bir billur damlasi gibi gozya\$larimin icinden sana selam etmek, bu vesile ile kapilarimin tum sozluk baylarina acik oldugunu belirtmek isterim."
+		"/me %nick: kariyerim balerinlikten mankenlige, ressamliktan kama-sutra'ya uzanan cok geni\$ bir yelpazeyi kapsar. selam etsem, alir misin?"
+}

@@ -1,11 +1,11 @@
 set xdream "\x02<x-dream>\x02"
 set xversion "1.99.996ka"
 
-set TurkishSource { "Þ" "Ý" "ý" "Ð" "þ" "ð" }
+set TurkishSource { "Åž" "Ä°" "Ä±" "Äž" "ÅŸ" "ÄŸ" }
 set TurkishDest   { "$" "i" "I" "G" "$" "g" }
 
 set utfSource { "\xC4\x9F" "\xC3\xBC" "\xC5\x9F" "\xC4\xB1" "\xC3\xB6" "\xC3\xA7" "\xC4\x9E" "\xC3\x9C" "\xC5\x9E" "\xC4\xB0" "\xC3\x96" "\xC3\x87" }
-set utfDest   { "ð" "ü" "þ" "ý" "ö" "ç" "Ð" "Ü" "Þ" "Ý" "Ö" "Ç" }
+set utfDest   { "ÄŸ" "Ã¼" "ÅŸ" "Ä±" "Ã¶" "Ã§" "Äž" "Ãœ" "Åž" "Ä°" "Ã–" "Ã‡" }
 
 set mp3player "c:/program files/winamp/winamp.exe"
 set defaultkey "defaultkey"
